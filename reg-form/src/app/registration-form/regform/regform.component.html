@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+    <h3>REGISTRATION FORM</h3>
+    <div>
+      <label for="firstName">First Name</label>
+      <input id="firstName" formControlName="firstName" type="text" />
+    </div>
+  
+    <div>
+      <label for="lastName">Last Name</label>
+      <input id="lastName" formControlName="lastName" type="text" />
+    </div>
+  
+    <div>
+      <label for="address">Address</label>
+      <textarea id="address" formControlName="address"></textarea>
+    </div>
+  
+    <div>
+      <label for="country">Country</label>
+      <select id="country" formControlName="country" (change)="onCountryChange($event)">
+        <option *ngFor="let country of countries" [value]="country.name">{{ country.name }}</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="state">State</label>
+      <select id="state" formControlName="state" (change)="onStateChange($event)">
+        <option *ngFor="let state of states" [value]="state.name">{{ state.name }}</option>
+      </select>
+    </div>
+  
+    <div>
+      <label for="district">District</label>
+      <select id="district" formControlName="district">
+        <option *ngFor="let district of districts" [value]="district.name">{{ district.name }}</option>
+      </select>
+    </div>
+  
+    <button type="submit">Register</button>
+  </form>
+  
